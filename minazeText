@@ -1,0 +1,24 @@
+// ФУНКЦИЯ ДОБАВЛЯЕТСЯ В ГЛОБАЛЬНУЮ ЗОНУ ВИДИМОСТИ
+
+// ВЫЗОВ ПРОСТ cutText(el - первым параметром выбираем елемент '.element', вторым сколько мы хотим оставить символов 100)
+
+<div class="item">ТУТ МНОГО ТЕКСТА</div>
+
+cutText('.item', 100)
+
+window.cutText = (el,count) =>{
+  $$(el).forEach(e => {
+     let fullText = e.textContent
+     if(fullText.length > count) {
+      let cutText = `${e.textContent.slice(0,count)}...`
+      e.textContent = cutText
+      let readMore = document.createElement('div');
+      readMore.classList.add('read__more')
+      readMore.textContent = `Читать ещё`
+      e.appendChild(readMore)
+      e.onclick = () => {
+       e.innerText = fullText
+      }
+     }
+  });
+}
