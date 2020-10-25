@@ -1,3 +1,5 @@
+//Шаблон THREE js на классах
+
 import * as THREE from 'three';
 
 
