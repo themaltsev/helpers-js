@@ -1,0 +1,28 @@
+// GSAP 
+//EASY LIBA FOR ANIMATION IN WEB! \
+//console
+npm i gsap -D
+
+// main.js
+import gsap from `gsap`
+
+//in when you wanna
+
+let tl = gsap.timeline();
+tl.to(".class", 1, { y: 100 }) 
+.fromTo(".class", 1, { y: 0 },{ y: 100 })
+.from(".class", 1, { y: 100 })
+
+.staggerFromTo(
+        ".class__item",
+        .1,
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+        },
+        "0.05"
+      );
