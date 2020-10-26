@@ -1,0 +1,5 @@
+npm install -g parcel-bundler
+
+parcel index.html
+
+//it easy MAN!!!
