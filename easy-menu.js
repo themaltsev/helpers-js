@@ -28,16 +28,6 @@ $(".hamburger").addEventListener('click', e => {
     }
   });
 
-  document.onscroll = () => {
-    if (
-      (document.documentElement.scrollTop || document.body.scrollTop) >
-      window.innerHeight
-    ) {
-      $(".top").classList.add("active");
-      $(".top").onclick = () => window.scrollTo(0, -110);
-    } else {
-      $(".top").classList.remove("active");
-    }
-  };
+  
 
 
