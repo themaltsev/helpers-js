@@ -1,9 +1,0 @@
-npm install -g parcel-bundler
-
-parcel index.html
-
-//it VERY easy MAN!!!
-
-//IF YOU NEED WEBPACK ???   GO TO https://github.com/themaltsev/start_tpl_webpack
-//IF YOU NEED GULP+WEBPACK ???   GO TO https://github.com/themaltsev/start_gulp_webpack
-
