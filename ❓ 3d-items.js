@@ -1,3 +1,5 @@
+//NOT WORKING IN MAC OS! SAFARI AND IOS SAFARI 
+
 export function big(elem, degStart) {
 
     if (elem != null) {
