@@ -1,0 +1,30 @@
+    // FAST DESCRIPTION 
+    //WHAT DO IT THIS PLUGIN?? 
+    // HE DOWNLOAD VIDEO FILE WHEN DIV/BLOCK VIDEO IN VIEWPORT! 
+    //ITS JUST LAZY LOADER VIDEO!!
+    
+    
+    //IF YOU WANNA BRO SUPPORTED IN ALL BROWSER YOU NEED INSTALL THIS PACK 
+    👇👇👇👇👇👇👇👇👇
+    npm install intersection-observer 
+    
+    ///if you not wanna skip this next row!
+    require("intersection-observer");
+    
+    let item = new IntersectionObserver((entries, imgObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          let video = entry.target;
+          let url = video.getAttribute('data-src')
+          if(video.innerHTML.length === 0) {
+          video.innerHTML = `
+          <video preload="auto" playsinline="" muted autoplay="true" type="video/mp4" crossorigin="anonymous" loop ><source src="${url}"></video>`
+        
+          }
+        }
+      });
+    });
+    // $$(".lazy-video") === document.querySelectorAll(".lazy-video") 
+    //more info its here bro! https://github.com/themaltsev/open-plugins/blob/master/global-vars.js
+    //$$(".lazy-video").forEach((e) => item.observe(e)); // this good for me! 
+    document.querySelectorAll(".lazy-video").forEach((e) => item.observe(e));
