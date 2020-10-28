@@ -1,3 +1,14 @@
-        function rand(a,b) {
-            return a + (b-a) * Math.random();
-        }
+//рандомные числа от и до
+
+
+function rand(a,b) {
+return a + (b-a) * Math.random();
+}
+
+//Если нужно целое число округлённое в  большую сторону!
+
+Math.floor(rand(-10,10))
+
+//or 
+
+parseInt(rand(-10,10))
