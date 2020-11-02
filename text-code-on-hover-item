@@ -8,10 +8,8 @@ export function textCode(elements,time = 500, speed = 75){
 
     //code.charAt(Math.floor(Math.random()* code.split('').length))
 
-    
-    $$(elements).forEach(elem => {
+    document.querySelectorAll(elements).forEach(elem => {
         
-
     let origText = elem.textContent;
 
     function randomText(){
