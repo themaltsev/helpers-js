@@ -1,0 +1,8 @@
+    let code = "!<>-_\\/[]{}â€”=+*^?#________";
+
+
+    console.log(
+
+        code.charAt(Math.floor(Math.random()* code.split('').length))
+
+    );
