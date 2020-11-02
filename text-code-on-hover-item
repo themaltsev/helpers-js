@@ -1,9 +1,8 @@
 //при наведении на айтем идёт перебор символов
 //для вызова >>>> import {textCode} from '@p/text-code';
 // далее >>> textCode('тут наш селектор', 300 второй аргумент время анимации (по умолчанию 500мс))
-// 
-
-export function textCode(elements,time = 500){
+// третий параметр скорость перебора
+export function textCode(elements,time = 500, speed = 75){
 
     let code = "!<>-_\\/[]{}â€”=+*^?#________";
 
@@ -37,7 +36,7 @@ export function textCode(elements,time = 500){
 
         let interval =  setInterval(() => {
             randomText()
-        }, 70);
+        }, speed);
 
         setTimeout(() => {
             clearInterval(interval)
