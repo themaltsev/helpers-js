@@ -10,6 +10,7 @@ export function textCode(elements,time = 500, speed = 75){
 
     document.querySelectorAll(elements).forEach(elem => {
         
+   
     let origText = elem.textContent;
 
     function randomText(){
@@ -53,5 +54,4 @@ export function textCode(elements,time = 500, speed = 75){
 
 
 }
-
 
