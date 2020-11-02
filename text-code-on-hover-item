@@ -4,7 +4,7 @@
 // третий параметр скорость перебора
 export function textCode(elements,time = 500, speed = 75){
 
-    let code = "!<>-_\\/[]{}â€”=+*^?#________";
+    let code = "!<>€=+*^?#|@$%^$@!&*?><";
 
     //code.charAt(Math.floor(Math.random()* code.split('').length))
 
@@ -41,7 +41,13 @@ export function textCode(elements,time = 500, speed = 75){
         setTimeout(() => {
             clearInterval(interval)
             elem.textContent = origText;
+            elem.addEventListener('mouseout', e=>{
+                clearInterval(interval)
+                elem.textContent = origText;
+        })
         }, time);
+
+
 
     })
 
