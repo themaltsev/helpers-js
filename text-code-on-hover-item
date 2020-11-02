@@ -1,0 +1,54 @@
+//при наведении на айтем идёт перебор символов
+//для вызова >>>> import {textCode} from '@p/text-code';
+// далее >>> textCode('тут наш селектор', 300 второй аргумент время анимации (по умолчанию 500мс))
+// 
+
+export function textCode(elements,time = 500){
+
+    let code = "!<>-_\\/[]{}â€”=+*^?#________";
+
+    //code.charAt(Math.floor(Math.random()* code.split('').length))
+
+    
+    $$(elements).forEach(elem => {
+        
+
+    let origText = elem.textContent;
+
+    function randomText(){
+
+        let letters = elem.textContent.split('')
+
+        let codeText = []
+
+        
+        for (let i = 0; i < letters.length; i++) {
+          
+            codeText.push(code.charAt(Math.floor(Math.random()* code.length)))
+            
+        }
+
+        elem.textContent = codeText.join('')
+
+    }
+
+
+    elem.addEventListener('mouseenter', e=>{
+
+        let interval =  setInterval(() => {
+            randomText()
+        }, 70);
+
+        setTimeout(() => {
+            clearInterval(interval)
+            elem.textContent = origText;
+        }, time);
+
+    })
+
+});
+
+
+}
+
+
