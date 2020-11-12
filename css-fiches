@@ -1,1 +1,30 @@
+    //интнресный градиент
+    
     background-image: linear-gradient(270deg,#f6f6f2,rgba(246,246,242,0));
+
+// стилизация деф скролл бара
+body::-webkit-scrollbar {
+  background: transparent;
+  width: 5px;
+  transition: 1s ease-in-out;
+}
+
+/* body::-webkit-scrollbar:hover {
+    width: 15px;
+  } */
+
+body::-webkit-scrollbar-thumb {
+  background: #00aeef;
+}
+
+
+/// заблюреная прозрачность как на ios 
+
+/* background: rgba(255, 255, 255, 0.842);
+backdrop-filter: blur(10px); */
+
+
+//text gradient 
+  background: linear-gradient(135deg, #12BCB0 20%, #FABE0E 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
