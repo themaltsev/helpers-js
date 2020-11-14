@@ -1,0 +1,20 @@
+
+requestPermission()
+
+console.log(requestPermission());
+
+function requestPermission() {
+  return new Promise(function (resolve, reject) {
+
+   let v =  resolve(1)
+
+  })
+
+
+
+  .then((v) => {
+
+    console.log(v);
+
+  });
+};
