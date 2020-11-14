@@ -1,10 +1,6 @@
 //Показывает процент на сколько прокручена страница!
-//CSS 
-
-
-
-
-
+let cssForBar = document.createElement('style');
+cssForBar.innerHTML = `
 .percent__scroll {
   will-change: transform;
   position: fixed;
@@ -35,15 +31,15 @@ left: 0;
   width: 0%;
   background: #00aeef;
 }
+`
+
+document.body.appendChild(cssForBar)
 
 
-//JS
-
-$('body').insertAdjacentHTML('beforeend', `<div class="percent__scroll">
+document.body.insertAdjacentHTML('beforeend', `<div class="percent__scroll">
 <div class="percent__scroll__text">0%</div>
 <div class="percent__scroll__line"></div>
 </div>`)
-
 
 const updateScrollPercentage = function() { 
 const heightOfWindow = window.innerHeight,
