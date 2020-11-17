@@ -1,20 +1,36 @@
-let item = $('.card__3d');
+let items = $$('.card__3d');
 
-gsap.set(item, { transformStyle: "preserve-3d" }),
+items.forEach(item => {
 
-item.addEventListener('mousemove', function(e){
+  gsap.set(item, { transformStyle: "preserve-3d" }),
 
-  let that = e.target 
+  item.addEventListener('mousemove', e=>{
+  
+    let that = e.target 
+  
+    let W = e.pageX - window.innerWidth / 2;
+    let H = e.pageY - window.innerHeight / 2;
+  
+    gsap.to(item, {
+            rotationY: 0.001 * W,
+            rotationX: -0.001 * H,
+            transformPerspective: 500,
+            transformOrigin: "center center -400",
+            ease: "power2.out"
+          });
+  
+  });
 
-  let W = e.pageX - window.innerWidth / 2;
-  let H = e.pageY - window.innerHeight / 2;
+  item.addEventListener('mouseout', e=>{
+  
+    gsap.to(item, {
+            rotationY: 0,
+            rotationX: 0,
+            transformPerspective: 500,
+            transformOrigin: "center center -400",
+            ease: "power2.out"
+          });
 
-  gsap.to(item, {
-          rotationY: 0.001 * W,
-          rotationX: -0.001 * H,
-          transformPerspective: 500,
-          transformOrigin: "center center -400",
-          ease: "power2.out"
-        });
+  })
 
-})
+});
