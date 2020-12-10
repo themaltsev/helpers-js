@@ -1,0 +1,10 @@
+<div class="hover__up"></div>
+
+.hover__up {
+  transform: translate(0,0);
+  transition: .2s transform ease-in;
+}
+
+.hover__up:hover {
+  transform: translate(0,-10px);
+}
