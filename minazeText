@@ -22,3 +22,15 @@ window.cutText = (el,count) =>{
      }
   });
 }
+
+v2 ))
+window.cutText = (el,count) =>{
+  $$(el).forEach(e => {
+     let fullText = e.textContent
+     if(fullText.length > count) {
+      let cutText = e.textContent.slice(0,count)+`...Читать полностью`
+      e.textContent = cutText
+      e.onclick = () => e.textContent = fullText
+     }
+  });
+}
