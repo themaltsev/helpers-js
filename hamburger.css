@@ -1,0 +1,61 @@
+/* hamburger */
+
+.hamburger{
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.hamburger i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 40px;
+  height: 3px;
+  background-color: #00aeef;
+  transition: .2s transform cubic-bezier(1,0,0,1);
+}
+
+
+
+.hamburger i::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #00aeef; 
+  transition: .2s transform cubic-bezier(1,0,0,1);
+}
+
+
+.hamburger i::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 80%;
+  height: 3px;
+  background-color: #00aeef; 
+  transition: .2s transform cubic-bezier(1,0,0,1);
+  z-index: 2;
+}
+
+.hamburger.open i {
+  transform: rotate(45deg);
+}
+
+.hamburger.open i::before {
+  transform: rotate(-90deg)translate(0px,10px)
+}
+
+.hamburger.open i::after {
+  transform: rotate(-90deg)translate(4px,4px);
+}
