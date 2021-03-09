@@ -53,9 +53,9 @@
 }
 
 .hamburger.open i::before {
-  transform: rotate(-90deg)translate(0px,10px)
+  transform: rotate(-90deg)translate(1px,10px)
 }
 
 .hamburger.open i::after {
-  transform: rotate(-90deg)translate(4px,4px);
+  transform: rotate(-90deg)translate(5px,4px);
 }
