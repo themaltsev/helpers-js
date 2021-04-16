@@ -1,6 +1,15 @@
-    //интнресный градиент
-    
-    background-image: linear-gradient(270deg,#f6f6f2,rgba(246,246,242,0));
+//интнресный градиент
+
+background-image: linear-gradient(270deg,#f6f6f2,rgba(246,246,242,0));
+
+
+//text с обводкой вроде
+
+color: transparent;
+-webkit-text-stroke-width: 4px;
+-webkit-text-stroke-color: rgba(255,255,255,.3);
+
+
 
 // стилизация деф скролл бара
 body::-webkit-scrollbar {
