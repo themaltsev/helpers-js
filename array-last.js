@@ -3,3 +3,6 @@ if (!Array.prototype.last){
         return this[this.length - 1];
     };
 };
+
+
+let lastItem = $$('.stat-main')[$$('.stat-main').length - 1];
