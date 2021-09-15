@@ -23,3 +23,23 @@
     }
     
     }
+
+
+/* Avoid Chrome to see Safari hack */
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* The hack for Safari */
+    min-height: -webkit-fill-available;
+  }
+}
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  .call__input,
+  .chat__main__input,
+  input {
+    font-size: 16px;
+  }
+}
