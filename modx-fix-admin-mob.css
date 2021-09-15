@@ -1,0 +1,25 @@
+    
+#manager/templates/default/css/index.css
+
+
+@media screen and (max-width: 640px) {
+        
+/*     .x-tab-strip-wrap {   margin-top:50px;
+    
+} */
+        
+    #modx-user-menu {
+    margin-right: 0;
+    }
+    
+    #modx-home-dashboard, #limenu-about, #limenu-about, #limenu-user {display:none!important}
+    
+    #modx-navbar .top {
+    padding-right:0;
+    }
+    
+    #modx-navbar .top:after {
+        display:none;
+    }
+    
+    }
