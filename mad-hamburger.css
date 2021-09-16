@@ -1,0 +1,70 @@
+/* <div class="hamburger">
+  <div class="hamburger__up"></div>
+  <div class="hamburger__down"></div>
+</div> */
+
+
+.hamburger {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+.hamburger__up {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 2px;
+  background-color: #00aeef;
+  transform: translate(0,5px);
+  transition: .3s transform ease-in-out;
+}
+
+
+.hamburger__down {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 2px;
+  background-color: #00aeef;
+  transform: translate(0,-5px);
+  transition: .3s transform ease-in-out;
+}
+
+.hamburger.open .hamburger__up {
+transform: rotate(45deg)
+}
+
+.hamburger.open .hamburger__down {
+  transform: rotate(-45deg)
+}
+
+
+.hamburger:hover .hamburger__up{
+  transform: translate(0,6px);
+}
+
+
+.hamburger:hover .hamburger__down{
+  transform: translate(0,-6px);
+}
+
+
+.hamburger.open:hover .hamburger__up{
+  transform: rotate(45deg)
+}
+
+
+.hamburger.open:hover .hamburger__down{
+  transform: rotate(-45deg)
+}
