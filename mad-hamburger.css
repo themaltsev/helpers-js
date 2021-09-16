@@ -3,6 +3,9 @@
   <div class="hamburger__down"></div>
 </div> */
 
+/* js добавляем класс open при отрытии */
+
+
 
 .hamburger {
   width: 30px;
