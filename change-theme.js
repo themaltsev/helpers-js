@@ -1,87 +1,102 @@
 // плагин для изменения цветовой темы
 
-let changeThemeBtm = `<div class="change__theme">
-<div class="change__theme__tab active"></div>
-<div class="change__theme__text">Темная тема</div>
-</div>`
+// По дефу стоит светлая тема импортируем фунции куда угодно и вызываем когда угодно 
+
+//Импортируем CSS с инвертироваными переменными
+
+import wCss from "../css/main-inverse.css";
+
+//Типо так выглядит
+// :root {
+
+//   --c1: #0E1621;
+//   --c2:#101820;
+//   --c3: #17212B;
+//   --c4: #17212be5;
+//   --c5: #17212b8c;
+//   --b1: #ffffff;
+//   --b2: #F1F1F1;
+//   --a1: #00aeef;
+//   --a2: #00afefd5;
+//   --bb: #BBBBBB;
+//   --dd : #ddd;
+//   --ee : #eee;
+//   --br1 : 1px solid rgba(0, 0, 0, 0.337);
+//   --s1: 0px 0px 15px 0px var(--c3);
+
+// }
 
 
-export function toDark(){
-    if($('.style__ligth')) $('.style__ligth').remove()
-    $('.change__theme__tab').classList.add('active')
-    localStorage.setItem("darkmode", 'true');
-}
+//Тут всё понятно 
+let themeStyle = document.createElement('style')
+themeStyle.classList.add('style__ligth')
+themeStyle.innerHTML = wCss.toString()
+
+
 
 
 export function toLigth(){
-  $('.change__theme__tab').classList.remove('active')
+  // console.log('dark');
+  $('.dark__btm').classList.add('active')
+  themeStyle.remove()
   localStorage.setItem("darkmode", 'false');
-
-  if(!localStorage.getItem("inverse-css")) {
-    axios.get('/assets/inverse.min.css')
-    .then(r=>{
-      let themeStyle = document.createElement('style')
-      themeStyle.innerHTML = r.data
-      themeStyle.classList.add('style__ligth')
-      document.body.appendChild(themeStyle)
-      localStorage.setItem("inverse-css", r.data);
-    })
-  }
-  else {
-    let themeStyle = document.createElement('style')
-    themeStyle.innerHTML = localStorage.getItem("inverse-css")
-    themeStyle.classList.add('style__ligth')
-    document.body.appendChild(themeStyle)
-    $('.inverse-css')
-  }
+}
 
 
+export function toDark(){
+  // console.log('ligth');
+  $('.dark__btm').classList.remove('active')
+  document.body.appendChild(themeStyle)
+  localStorage.setItem("darkmode", 'true');
 }
 
 
 export function theme(){
 
-  $('.footer__text').insertAdjacentHTML( 'beforeend', changeThemeBtm)
+if(localStorage.getItem("darkmode")) {
 
-  if(localStorage.getItem("darkmode")) {
-    if(localStorage.getItem("darkmode") === 'true') {
-      toDark()
-      console.log(localStorage.getItem("darkmode"));
-    }
-    else {
-      toLigth()
-      console.log(localStorage.getItem("darkmode"));
-     }
-  } 
+  if(localStorage.getItem("darkmode") === 'true') {
+    toDark()
+  }
   else {
-    // Check to see if Media-Queries are supported
-    if (window.matchMedia) {
-    // Check if the dark-mode Media-Query matches
-    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-    // Dark
-    toDark()
-    } else {
-    // Light
-    toLigth() 
+    toLigth()
     }
-    } else {
-    // Default (when Media-Queries are not supported)
-    // toLigth() 
-    }
-  }
-
+} 
+else {
     
-$('.change__theme__tab').addEventListener('click',e=>{
-  e.target.classList.toggle('active')
-  if($('.change__theme__tab').classList.contains('active')) {
-    toDark()
-     CustomPush.show({title: `Темная тема включена`});
+  // Если хотим автоматическую смену режима оформления то раскомментировать "ТУТ"
+  // типо если девайс поддерживает темный режим включиться темный автоматом!!!!!
+    
+  // Check to see if Media-Queries are supported
+  if (window.matchMedia) {
+  // Check if the dark-mode Media-Query matches
+  if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+  // Dark
+ // toDark() 1. Тут 
+  } else {
+  // Light 2. Тут 
+  //toLigth() 
   }
-  else { 
-    toLigth() 
-     CustomPush.show({title: `Темная тема отключена`});
+  } else {
+  // Default (when Media-Queries are not supported)
+  toLigth() 
   }
-})
+}
+
+
+ //Пример с моего сайта Fixdevice.pro ! При клике на кнопку меняется тема и класс у кнопки и обратно!
+
+// $('.dark__btm').addEventListener('click',e=>{
+
+//   $('.dark__btm').classList.toggle('active')
+
+//   if($('.dark__btm').classList.contains('active')) {
+
+//   toLigth()
+// }
+//   else toDark();
+
+// })
 
 }
 
