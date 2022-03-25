@@ -12,3 +12,14 @@ Math.floor(rand(-10,10))
 //or 
 
 parseInt(rand(-10,10))
+
+
+function rand(min, max){
+	return Math.round(Math.random() * (max - min)) + min
+}   
+
+function getRandomElement(arr) {
+    var rand = Math.floor(Math.random() * arr.length);
+    return arr[rand];
+}
+
