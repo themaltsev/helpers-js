@@ -1,0 +1,31 @@
+<!-- ссылки на статьи -->
+<section class="center" itemscope itemtype="http://schema.org/Article">
+<h1 class="__title">[[*pagetitle]]</h1>
+<h2 class="__subtitle" itemprop="description">Представлено <b class="__ca __cstat">[[getChildCount? &parent=`[[*id]]`]]</b> статей</h2>
+<input type="text" aria-label="поиск по сайту" class="blog__search" maxlength="90" value="" placeholder="Поиск по ключевым словам" required="">
+<div class="blog__main">
+    
+[[!pdoResources? 
+&parents=`[[*id]]`
+&limit=`0`
+&includeTVs=`blog`
+&tpl=`stat-link`
+&loadModels=`sitestatistics`
+    &leftJoin=`{
+        "Statistics": {
+            "class": "PageStatistics",
+            "on": "modResource.id = Statistics.rid"
+        }
+    }`
+    &select=`{
+        "modResource": "*",
+        "Statistics": "IFNULL(SUM(views),0) as views, COUNT(DISTINCT user_key) as users"
+    }`
+    &groupby=`modResource.id`
+    &sortby=`views`
+]]
+
+</div>
+</section> 
+<div class="pt60"></div>
+<!-- ссылки на статьи -->
