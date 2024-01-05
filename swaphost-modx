@@ -1,0 +1,27 @@
+MODX ON VPS ПЕРЕНОС БЕЗ БОЛИ
+#Ставим права доступа
+
+$ chmod 775 -R /var/www/modx/* ➜ / chown -R www-data:www-data /var/www/fxde.ru ➜ / chown -R www-data:www-data /var/www/fxde.ru/ ➜ / chown -R www-data:www-data /var/www/fxde.ru/* ➜ / chown -R www-data:www-data /var/www/fxde.ru/*
+
+#Нужен Php7.4
+
+если не видит файлы в диспечере
+$ apt install php7.4-mbstring
+
+правим пути
+manager/config.core.php
+connectors/config.core.php
+config.core.php
+core/config/config.inc.php
+###########
+
+core/config/config.inc.php
+$database_server = 'localhost'; $database_user = 'u1234567_database'; $database_password = 'password'; $dbase = 'u1234567_dbuser'; $database_dsn='mysql:host=localhost;dbname=u1234567_database;charset=utf8';
+
+Nginx config for domen + php-fpm
+server { listen 80; server_name example.com www.example.com; root /home/sites/example.com; index index.php; client_max_body_size 30M; location / { root /home/sites/example.com; if (!-e $request_filename) { rewrite ^/(.)$ /index.php?q=$1 last; } } location ~ .php$ { try_files $uri =404; fastcgi_split_path_info ^(.+.php)(.)$; fastcgi_pass 127.0.0.1:9000; fastcgi_index index.php; fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; include fastcgi_params; fastcgi_ignore_client_abort on; fastcgi_param SERVER_NAME $http_host; }
+
+    location ~ /\.ht {
+            deny  all;
+    }
+}
